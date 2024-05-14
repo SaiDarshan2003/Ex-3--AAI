@@ -41,12 +41,7 @@ from pgmpy.factors.discrete import TabularCPD
 from pgmpy.sampling import GibbsSampling
 import networkx as nx
 import matplotlib.pyplot as plt
-network=BayesianNetwork([
-    ('Burglary','Alarm'),
-    ('Earthquake','Alarm'),
-    ('Alarm','JohnCalls'),
-    ('Alarm','MaryCalls')
-])
+network=BayesianNetwork([ ('Burglary','Alarm'), ('Earthquake','Alarm'),('Alarm','JohnCalls'),('Alarm','MaryCalls')])
 cpd_burglary = TabularCPD(variable='Burglary',variable_card=2,values=[[0.999],[0.001]])
 cpd_earthquake = TabularCPD(variable='Earthquake',variable_card=2,values=[[0.998],[0.002]])
 cpd_alarm = TabularCPD(variable ='Alarm',variable_card=2, values=[[0.999, 0.71, 0.06, 0.05],[0.001, 0.29, 0.94, 0.95]],evidence=['Burglary','Earthquake'],evidence_card=[2,2])
